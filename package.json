@@ -1,0 +1,15 @@
+{
+  "name": "capture-spike",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Jeremy-Walton/capture-spike.git",
+  "author": "Josh McLeod <josh@mcleodfamily.org>",
+  "license": "MIT",
+  "scripts": {
+    "build": "esbuild src/inject.js --bundle --outfile=dist/application.js"
+  },
+  "dependencies": {
+    "esbuild": "^0.14.54",
+    "juice": "^8.1.0"
+  }
+}
