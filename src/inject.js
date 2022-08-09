@@ -11,13 +11,13 @@ iframe.style.height = '95vh';
 iframe.style.zIndex = '9999';
 iframe.style.border = '1px solid red';
 
+iframe.onLoad = () => {
+  console.log('Juicing up: ')
+  const juicedUpCode = juice(iframe.contentWindow.document.body.innerHTML)
+  console.log('body', iframe.contentWindow.document.body)
+  console.log('innerHTML', iframe.contentWindow.document.body.innerHTML)
+  console.log('Juiced html: ', juicedUpCode)
+  navigator.clipboard.writeText(juicedUpCode)
+}
+
 document.body.appendChild(iframe);
-
-console.log('Juicing up: ')
-
-const juicedUpCode = juice(iframe.contentWindow.document.body.innerHTML)
-console.log('body', iframe.contentWindow.document.body)
-console.log('innerHTML', iframe.contentWindow.document.body.innerHTML)
-console.log('Juiced html: ', juicedUpCode)
-navigator.clipboard.writeText(juicedUpCode)
-
