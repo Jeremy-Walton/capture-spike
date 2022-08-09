@@ -15653,6 +15653,8 @@
   document.body.appendChild(iframe);
   console.log("Juicing up: ");
   var juicedUpCode = juice(iframe.contentWindow.document.body.innerHTML);
+  console.log("body", iframe.contentWindow.document.body);
+  console.log("innerHTML", iframe.contentWindow.document.body.innerHTML);
   console.log("Juiced html: ", juicedUpCode);
   navigator.clipboard.writeText(juicedUpCode);
 })();
