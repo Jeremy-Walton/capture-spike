@@ -6,7 +6,7 @@
   "author": "Josh McLeod <josh@mcleodfamily.org>",
   "license": "MIT",
   "scripts": {
-    "build": "esbuild src/inject.js --bundle --outfile=dist/application.js"
+    "build": "esbuild src/inject.js --bundle --outfile=dist/application.js --define:window.REMOVE_DEBUGGER=false --platform=node"
   },
   "dependencies": {
     "esbuild": "^0.14.54",

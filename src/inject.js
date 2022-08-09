@@ -1,5 +1,14 @@
 const juice = require('juice')
 
+const util = require('web-resource-inliner/src/util')
+
+util.getInlineFileContents = function( src, relativeTo ) {
+  debugger
+  return fs.readFileSync( util.getInlineFilePath( src, relativeTo ) );
+};
+
+
+
 let iframe = document.createElement('iframe');
 
 iframe.src = window.location;
@@ -13,7 +22,10 @@ iframe.style.border = '1px solid red';
 
 iframe.onload = () => {
   console.log('Juicing up: ')
-  const juicedUpCode = juice(iframe.contentWindow.document.children[0].outerHTML)
+  // console.log('window location href', window.location.href)
+  const relativeUrl = "https://ebus-test.fa.us2.oraclecloud.com/"
+  const options = { webResources: { relativeTo: relativeUrl, images: true } }
+  const juicedUpCode = juice(iframe.contentWindow.document.children[0].outerHTML, options)
   console.log('Juiced html: ', juicedUpCode)
   navigator.clipboard.writeText(juicedUpCode)
 }
