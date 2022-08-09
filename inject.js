@@ -1,4 +1,4 @@
-let iframe = document.createElement('script');
+let iframe = document.createElement('iframe');
 iframe.src = window.location;
 iframe.style.position = 'absolute';
 iframe.style.left = '10px';
