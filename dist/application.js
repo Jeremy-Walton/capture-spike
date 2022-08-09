@@ -15650,11 +15650,9 @@
   iframe.style.height = "95vh";
   iframe.style.zIndex = "9999";
   iframe.style.border = "1px solid red";
-  iframe.onLoad = () => {
+  iframe.onload = () => {
     console.log("Juicing up: ");
-    const juicedUpCode = juice(iframe.contentWindow.document.body.innerHTML);
-    console.log("body", iframe.contentWindow.document.body);
-    console.log("innerHTML", iframe.contentWindow.document.body.innerHTML);
+    const juicedUpCode = juice(iframe.contentWindow.document.children[0].outerHTML);
     console.log("Juiced html: ", juicedUpCode);
     navigator.clipboard.writeText(juicedUpCode);
   };
